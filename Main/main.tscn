@@ -7,8 +7,10 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ek5pm")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="MainMenu" parent="CanvasLayer" instance=ExtResource("2_hm8vq")]
-
 [node name="GUI" parent="CanvasLayer" instance=ExtResource("3_adjhm")]
+
+[node name="MainMenu" parent="CanvasLayer" instance=ExtResource("2_hm8vq")]
