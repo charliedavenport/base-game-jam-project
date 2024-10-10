@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo32gngn4s1ww"]
+[gd_scene load_steps=5 format=3 uid="uid://bo32gngn4s1ww"]
 
 [ext_resource type="Script" path="res://GUI/gui.gd" id="1_vuoel"]
+[ext_resource type="Script" path="res://GUI/pause_menu.gd" id="2_7wxoc"]
+[ext_resource type="Script" path="res://GUI/victory_screen.gd" id="2_hh0m6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3y7jc"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -12,6 +21,7 @@ grow_vertical = 2
 script = ExtResource("1_vuoel")
 
 [node name="PauseMenu" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -24,3 +34,153 @@ offset_right = 194.0
 offset_bottom = 194.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_7wxoc")
+
+[node name="Panel" type="Panel" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = -216.0
+offset_right = 218.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3y7jc")
+
+[node name="Label" type="Label" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.5
+offset_top = -195.0
+offset_right = 189.5
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.298039, 0.560784, 0.815686, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 23
+theme_override_font_sizes/font_size = 72
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="MainMenuButton" type="Button" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -18.0
+offset_right = -59.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+
+[node name="ResumeButton" type="Button" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 62.0
+offset_top = -18.0
+offset_right = 188.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resume"
+
+[node name="VictoryScreen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -348.0
+offset_top = -242.0
+offset_right = 348.0
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_hh0m6")
+
+[node name="Panel" type="Panel" parent="VictoryScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -218.0
+offset_top = -216.0
+offset_right = 218.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3y7jc")
+
+[node name="Label" type="Label" parent="VictoryScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.5
+offset_top = -195.0
+offset_right = 189.5
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.941176, 0.815686, 0.156863, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 23
+theme_override_font_sizes/font_size = 72
+text = "You Win!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="MainMenuButton" type="Button" parent="VictoryScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -18.0
+offset_right = -59.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+
+[node name="ReplayLevelButton" type="Button" parent="VictoryScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 62.0
+offset_top = -18.0
+offset_right = 188.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Replay Level"

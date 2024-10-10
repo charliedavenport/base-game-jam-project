@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bo32gngn4s1ww" path="res://GUI/gui.tscn" id="3_adjhm"]
 
 [node name="Main" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_ek5pm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
