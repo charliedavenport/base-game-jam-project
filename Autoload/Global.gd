@@ -8,8 +8,7 @@ const mappable_inputs = [
 	"up",
 	"down",
 	"left",
-	"right",
-	"pause"
+	"right"
 ]
 
 var current_options : Options
