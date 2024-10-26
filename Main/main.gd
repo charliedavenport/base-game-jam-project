@@ -17,7 +17,8 @@ const level_scenes = [
 enum GameState {
 	MainMenu, 
 	Playing, 
-	Victory
+	Victory,
+	Fail
 }
 var curr_state : GameState:
 	set(value): 
@@ -79,6 +80,7 @@ func load_level(level_ind: int) -> void:
 	curr_level = level_scenes[level_ind].instantiate()
 	add_child(curr_level)
 	curr_level.objective.objective_taken.connect(on_objective_taken)
+	curr_level.enemy.enemy_touched.connect(on_enemy_touched)
 	spawn_player()
 	
 	gui.reset()
@@ -86,7 +88,7 @@ func load_level(level_ind: int) -> void:
 
 
 func spawn_player(location: Vector2 = Vector2.ZERO) -> void:
-	if player:
+	if player and player != null:
 		player.queue_free()
 	
 	player = player_scene.instantiate()
@@ -95,10 +97,16 @@ func spawn_player(location: Vector2 = Vector2.ZERO) -> void:
 
 
 func on_objective_taken() -> void:
+	player.can_move = false
 	curr_level.objective.queue_free()
-	gui.victory_screen.show()
+	gui.end_screen.show_win()
 	curr_state = GameState.Victory
 
+
+func on_enemy_touched() -> void:
+	player.queue_free() # dies
+	gui.end_screen.show_fail()
+	curr_state = GameState.Fail
 
 func toggle_pause() -> void:
 	if get_tree().paused:
@@ -119,6 +127,7 @@ func pause() -> void:
 		return
 	get_tree().paused = true
 	gui.pause_menu.show()
+
 
 func init_default_inputs() -> void:
 	pass

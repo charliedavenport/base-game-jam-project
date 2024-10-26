@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://GUI/gui.gd" id="1_vuoel"]
 [ext_resource type="Script" path="res://GUI/pause_menu.gd" id="2_7wxoc"]
-[ext_resource type="Script" path="res://GUI/victory_screen.gd" id="2_hh0m6"]
+[ext_resource type="Script" path="res://GUI/end_game_screen.gd" id="2_hh0m6"]
 [ext_resource type="PackedScene" uid="uid://b2g08umhm2j37" path="res://Main Menu/options_menu.tscn" id="3_l574g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3y7jc"]
@@ -22,6 +22,7 @@ grow_vertical = 2
 script = ExtResource("1_vuoel")
 
 [node name="PauseMenu" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -108,8 +109,7 @@ offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="VictoryScreen" type="Control" parent="."]
-visible = false
+[node name="EndGameScreen" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -124,22 +124,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_hh0m6")
 
-[node name="Panel" type="Panel" parent="VictoryScreen"]
+[node name="Panel" type="Panel" parent="EndGameScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -218.0
+offset_left = -264.0
 offset_top = -216.0
-offset_right = 218.0
+offset_right = 264.0
 offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3y7jc")
 
-[node name="Label" type="Label" parent="VictoryScreen"]
+[node name="WinLabel" type="Label" parent="EndGameScreen"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -161,7 +162,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="MainMenuButton" type="Button" parent="VictoryScreen"]
+[node name="FailLabel" type="Label" parent="EndGameScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.5
+offset_top = -195.0
+offset_right = 189.5
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.94, 0.1598, 0.1598, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 23
+theme_override_font_sizes/font_size = 72
+text = "You Failed!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="MainMenuButton" type="Button" parent="EndGameScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -176,7 +199,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Main Menu"
 
-[node name="ReplayLevelButton" type="Button" parent="VictoryScreen"]
+[node name="ReplayLevelButton" type="Button" parent="EndGameScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

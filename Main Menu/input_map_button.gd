@@ -16,5 +16,11 @@ func _ready() -> void:
 	refresh_key_label()
 
 func refresh_key_label() -> void:
-	var action_event : InputEventKey = InputMap.action_get_events(input_event_name)[0]
-	input_label.text = str(char(action_event.unicode)).to_upper()
+	var action_events : Array[InputEvent] = InputMap.action_get_events(input_event_name)
+	if action_events:
+		var input_event : InputEventKey = action_events[0]
+		var key_char := str(char(input_event.unicode)).to_upper()
+		if key_char and key_char.strip_edges() != "":
+			input_label.text = key_char
+		else:
+			input_label.text = OS.get_keycode_string(input_event.physical_keycode)
