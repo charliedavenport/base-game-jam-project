@@ -33,13 +33,14 @@ var curr_level : Level
 @onready var is_muted := false
 @onready var curr_level_ind := 0
 
+var default_input_map : Dictionary
+
 func _ready() -> void:
+	init_default_inputs()
 	main_menu.play_pressed.connect(on_menu_play_pressed)
 	gui.main_menu_pressed.connect(open_main_menu)
 	gui.replay_pressed.connect(start_game)
 	gui.resume_pressed.connect(resume)
-	Global.toggle_mute.connect(toggle_mute)
-	Global.set_input_action_key.connect(on_set_input_action_key)
 	open_main_menu()
 
 
@@ -112,17 +113,12 @@ func resume() -> void:
 	get_tree().paused = false
 	gui.pause_menu.hide()
 
+
 func pause() -> void:
 	if get_tree().paused:
 		return
 	get_tree().paused = true
 	gui.pause_menu.show()
 
-func toggle_mute() -> void:
-	Global.is_muted = not Global.is_muted
-
-
-func on_set_input_action_key(action_name : String, event : InputEventKey) -> void:
-	#print("setting action %s to input event %s" % [action_name, event])
-	InputMap.action_erase_events(action_name)
-	InputMap.action_add_event(action_name, event)
+func init_default_inputs() -> void:
+	pass

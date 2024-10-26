@@ -63,6 +63,10 @@ offset_bottom = 197.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ResetButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Reset to Default"
+
 [node name="MuteToggle" type="CheckButton" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
@@ -92,6 +96,12 @@ text = "  "
 input_event_name = "right"
 input_display_name = "Right"
 
+[node name="InputMapButton5" parent="VBoxContainer" instance=ExtResource("2_7q6s3")]
+layout_mode = 2
+text = "  "
+input_event_name = "pause"
+input_display_name = "Pause"
+
 [node name="XButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 1
@@ -106,6 +116,7 @@ theme_override_font_sizes/font_size = 12
 text = "x"
 
 [node name="ListenForInputPanel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

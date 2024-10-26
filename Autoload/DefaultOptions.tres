@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Options" load_steps=2 format=3 uid="uid://buthja5jcvjvv"]
+
+[ext_resource type="Script" path="res://Autoload/Options.gd" id="1_6gdik"]
+
+[resource]
+script = ExtResource("1_6gdik")
+is_muted = false

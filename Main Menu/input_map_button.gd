@@ -1,3 +1,4 @@
+@tool
 extends Button
 
 ## must match the input name in project settings
